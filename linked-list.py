@@ -131,6 +131,17 @@ class LinkedList(object):
             prev.next = new_node
             new_node.next = node
 
+    def removeDuplicates(self):
+
+        current = self.head
+
+        while current.next is not None:
+            if current.data == current.next.data:
+                current.next = current.next.next
+
+            else:
+                current = current.next
+
 
 my_ll = LinkedList()
 my_ll.add_node("apple")
@@ -143,4 +154,13 @@ my_ll.add_node("orange")
 my_ll.remove_by_index(1)
 my_ll.print_list()
 my_ll.add_by_index(3, "honey")
+my_ll.print_list()
+
+my_ll.add_node(1)
+my_ll.add_node(1)
+my_ll.add_node(2)
+my_ll.add_node(2)
+my_ll.add_node(3)
+my_ll.add_node(3)
+my_ll.add_node(5)
 my_ll.print_list()
